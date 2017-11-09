@@ -46,6 +46,8 @@ export class EnfantsComponent implements OnInit {
     );
   }
 
+
+  
   addEnfant() {
     this.enfantService.addEnfant(this.addEnfantForm.value).subscribe(
       res => {

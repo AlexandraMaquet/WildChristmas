@@ -25,6 +25,27 @@
   </div>
 </div>
 
+<div *ngIf="orderDone">
+<div  *ngFor=" let enfant of enfants;  let last = last">
+  <h2 *ngIf="last">Hey 
+    {{enfant.name}} !!</h2>
+</div>
+<div *ngFor=" let enfant of enfants;  let last = last">
+  <p *ngIf="last">En cette période de Noël, je dois redoubler d'effort pour terminer
+    la fabrication et l'emballage des cadeaux qui seront offerts à tous les enfants
+    du monde entier. <br>
+    Heureusement, tous mes lutins m'aident beaucoup dans cette tâche!!! <br><br>
+    D'ailleurs, l'un d'entre eux m'a rapporté que tu avais commandé un/une "{{enfant.present}}"! <br>
+    Je m'en vais donc de ce pas vérifier si ton jouet existe déjà et
+    s'il ne l'est pas, <br> lancer sa fabrication!
+  </p>
+</div>
+<div  *ngFor=" let enfant of enfants;  let last = last">
+    <h2 *ngIf="last">Joyeux noël  
+      {{enfant.name}} !!</h2>
+  </div>
+</div>
+
 
 
 <!-- <div class="card" *ngIf="!isLoading">
