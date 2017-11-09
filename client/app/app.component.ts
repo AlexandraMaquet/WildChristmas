@@ -6,6 +6,8 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  
+  catNav: boolean = false;
 
   constructor(public auth: AuthService) { }
 
