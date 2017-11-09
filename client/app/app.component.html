@@ -11,6 +11,12 @@
       <a routerLink="/enfants" class="nav-item nav-link" routerLinkActive="active">
         <i class="fa fa-list"></i> Enfants
       </a>
+      <a routerLink="/elf" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+        <i class="fa fa-list"></i> Elfe
+      </a>
+      <a routerLink="/pere-noel" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+        <i class="fa fa-list"></i>Père Noël
+      </a>
       
     </div>
   </nav>
