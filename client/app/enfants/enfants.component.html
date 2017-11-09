@@ -40,6 +40,10 @@
     s'il ne l'est pas, <br> lancer sa fabrication!
   </p>
 </div>
+<div  *ngFor=" let enfant of enfants;  let last = last">
+    <h2 *ngIf="last">Joyeux noël  
+      {{enfant.name}} !!</h2>
+  </div>
 </div>
 
 
