@@ -1,89 +1,89 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
-import { CatService } from '../services/enfant.service';
+import { EnfantService } from '../services/enfant.service';
 import { ToastComponent } from '../shared/toast/toast.component';
 
 @Component({
-  selector: 'app-cats',
-  templateUrl: './cats.component.html',
-  styleUrls: ['./cats.component.scss']
+  selector: 'app-enfants',
+  templateUrl: './enfants.component.html',
+  styleUrls: ['./enfants.component.scss']
 })
-export class CatsComponent implements OnInit {
+export class EnfantsComponent implements OnInit {
 
-  cat = {};
-  cats = [];
+  enfant = {};
+  enfants = [];
   isLoading = true;
   isEditing = false;
 
-  addCatForm: FormGroup;
+  addEnfantForm: FormGroup;
   name = new FormControl('', Validators.required);
   age = new FormControl('', Validators.required);
   weight = new FormControl('', Validators.required);
 
-  constructor(private catService: CatService,
+  constructor(private enfantService: EnfantService,
               private formBuilder: FormBuilder,
               public toast: ToastComponent) { }
 
   ngOnInit() {
-    this.getCats();
-    this.addCatForm = this.formBuilder.group({
+    this.getEnfants();
+    this.addEnfantForm = this.formBuilder.group({
       name: this.name,
       age: this.age,
       weight: this.weight
     });
   }
 
-  getCats() {
-    this.catService.getCats().subscribe(
-      data => this.cats = data,
+  getEnfants() {
+    this.enfantService.getEnfants().subscribe(
+      data => this.enfants = data,
       error => console.log(error),
       () => this.isLoading = false
     );
   }
 
-  addCat() {
-    this.catService.addCat(this.addCatForm.value).subscribe(
+  addEnfant() {
+    this.enfantService.addEnfant(this.addEnfantForm.value).subscribe(
       res => {
-        const newCat = res.json();
-        this.cats.push(newCat);
-        this.addCatForm.reset();
+        const newEnfant = res.json();
+        this.enfants.push(newEnfant);
+        this.addEnfantForm.reset();
         this.toast.setMessage('item added successfully.', 'success');
       },
       error => console.log(error)
     );
   }
 
-  enableEditing(cat) {
+  enableEditing(enfant) {
     this.isEditing = true;
-    this.cat = cat;
+    this.enfant = enfant;
   }
 
   cancelEditing() {
     this.isEditing = false;
-    this.cat = {};
+    this.enfant = {};
     this.toast.setMessage('item editing cancelled.', 'warning');
-    // reload the cats to reset the editing
-    this.getCats();
+    // reload the children to reset the editing
+    this.getEnfants();
   }
 
-  editCat(cat) {
-    this.catService.editCat(cat).subscribe(
+  editEnfant(enfant) {
+    this.enfantService.editEnfant(enfant).subscribe(
       res => {
         this.isEditing = false;
-        this.cat = cat;
+        this.enfant = enfant;
         this.toast.setMessage('item edited successfully.', 'success');
       },
       error => console.log(error)
     );
   }
 
-  deleteCat(cat) {
+  deleteEnfant(enfant) {
     if (window.confirm('Are you sure you want to permanently delete this item?')) {
-      this.catService.deleteCat(cat).subscribe(
+      this.enfantService.deleteEnfant(enfant).subscribe(
         res => {
-          const pos = this.cats.map(elem => elem._id).indexOf(cat._id);
-          this.cats.splice(pos, 1);
+          const pos = this.enfants.map(elem => elem._id).indexOf(enfant._id);
+          this.enfants.splice(pos, 1);
           this.toast.setMessage('item deleted successfully.', 'success');
         },
         error => console.log(error)

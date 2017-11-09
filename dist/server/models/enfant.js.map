@@ -1,0 +1,1 @@
+{"version":3,"file":"enfant.js","sourceRoot":"","sources":["../../../server/models/enfant.ts"],"names":[],"mappings":";;AAAA,mCAAqC;AAErC,IAAM,YAAY,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IACvC,IAAI,EAAE,MAAM;IACZ,MAAM,EAAE,MAAM;IACd,GAAG,EAAE,MAAM;CACZ,CAAC,CAAC;AAEH,IAAM,MAAM,GAAG,QAAQ,CAAC,KAAK,CAAC,QAAQ,EAAE,YAAY,CAAC,CAAC;AAEtD,kBAAe,MAAM,CAAC"}

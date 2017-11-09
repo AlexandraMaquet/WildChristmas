@@ -5,8 +5,14 @@
       <a routerLink="/" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <i class="fa fa-home"></i> Home
       </a>
-      <a routerLink="/cats" class="nav-item nav-link" routerLinkActive="active">
-        <i class="fa fa-list"></i> Cats
+      <a routerLink="/enfants" class="nav-item nav-link" routerLinkActive="active">
+        <i class="fa fa-list"></i> Enfants
+      </a>
+      <a routerLink="/elfes" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+        <i class="fa fa-list"></i> Elfes
+      </a>
+      <a routerLink="/pere-noel" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+        <i class="fa fa-list"></i> Père noël
       </a>
       <a routerLink="/login" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
         <i class="fa fa-sign-in"></i> Login
