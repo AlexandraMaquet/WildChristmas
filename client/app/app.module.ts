@@ -18,6 +18,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PereNoelComponent } from './pere-noel/pere-noel.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AccountComponent,
     AdminComponent,
     NotFoundComponent,
-    EnfantsComponent
+    EnfantsComponent,
+    PereNoelComponent
   ],
   imports: [
     RoutingModule,
