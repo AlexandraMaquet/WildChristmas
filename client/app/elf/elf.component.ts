@@ -17,8 +17,6 @@ export class ElfComponent implements OnInit {
   enfant = {};
   enfants = [];
   isLoading = true;
-  isEditing = false;
-  orderDone = false;
 
   addEnfantForm: FormGroup;
   name = new FormControl('', Validators.required);
@@ -54,19 +52,18 @@ export class ElfComponent implements OnInit {
         const newEnfant = res.json();
         this.enfants.push(newEnfant);
         this.addEnfantForm.reset();
-        this.orderDone = true;
         this.toast.setMessage('Bravo, ton souhait de noël a bien été pris en compte! Encore un peu de patience!', 'success');
       },
       error => console.log(error)
     );
   }
 
-  editEnfant(enfant) {
+  created(enfant) {
+    enfant.created = true;
     this.enfantService.editEnfant(enfant).subscribe(
       res => {
-        this.isEditing = false;
         this.enfant = enfant;
-        this.toast.setMessage('enfant edited successfully.', 'success');
+        this.toast.setMessage('le cadeau a été fabriqué!', 'success');
       },
       error => console.log(error)
     );

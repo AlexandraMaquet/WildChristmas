@@ -17,6 +17,14 @@ var EnfantCtrl = (function (_super) {
     function EnfantCtrl() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.model = enfant_1.default;
+        _this.getAllCreated = function (req, res) {
+            _this.model.find({ created: true }, function (err, docs) {
+                if (err) {
+                    return console.error(err);
+                }
+                res.json(docs);
+            });
+        };
         return _this;
     }
     return EnfantCtrl;

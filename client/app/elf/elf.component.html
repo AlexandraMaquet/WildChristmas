@@ -24,8 +24,10 @@
         <tr *ngFor="let enfant of enfants">
           <td>{{enfant.present}}</td>
           <td>
-            <button class="btn btn-sm btn-success" (click)="enableCheck(enfant)">
-              <i class="fa fa-check"></i> Fabriqué</button>
+            <button class="btn btn-sm btn-success" (click)="created(enfant)" *ngIf="!enfant.created">
+              <i class="fa fa-check"></i>marquer comme fabriqué</button>
+            <button class="btn btn-sm btn-success" (click)="created(enfant)" *ngIf="enfant.created" [disabled]="true">
+                <i class="fa fa-check"></i>fabriqué</button>
             <button class="btn btn-sm btn-danger" (click)="deleteEnfant(enfant)">
               <i class="fa fa-trash"></i> Delete</button>
           </td>

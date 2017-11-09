@@ -4,7 +4,8 @@ const enfantSchema = new mongoose.Schema({
   name: String,
   town: String,
   age: Number,
-  present: String
+  present: String,
+  created: Boolean
 });
 
 const Enfant = mongoose.model('Enfant', enfantSchema);
