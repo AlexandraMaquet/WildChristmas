@@ -16,11 +16,13 @@ export class EnfantsComponent implements OnInit {
   enfants = [];
   isLoading = true;
   isEditing = false;
+  orderDone = false;
 
   addEnfantForm: FormGroup;
   name = new FormControl('', Validators.required);
   age = new FormControl('', Validators.required);
   town = new FormControl('', Validators.required);
+  present = new FormControl('', Validators.required);
 
   constructor(private enfantService: EnfantService,
               private formBuilder: FormBuilder,
@@ -31,7 +33,8 @@ export class EnfantsComponent implements OnInit {
     this.addEnfantForm = this.formBuilder.group({
       name: this.name,
       age: this.age,
-      town: this.town
+      town: this.town,
+      present: this.present
     });
   }
 
@@ -49,12 +52,14 @@ export class EnfantsComponent implements OnInit {
         const newEnfant = res.json();
         this.enfants.push(newEnfant);
         this.addEnfantForm.reset();
-        this.toast.setMessage('enfant added successfully.', 'success');
+        this.orderDone = true;
+        this.toast.setMessage('Bravo, ton souhait de noël a bien été pris en compte! Encore un peu de patience!', 'success');
       },
       error => console.log(error)
     );
   }
 
+ 
   enableEditing(enfant) {
     this.isEditing = true;
     this.enfant = enfant;

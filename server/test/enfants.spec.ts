@@ -40,7 +40,7 @@ describe('Enfants', () => {
     });
 
     it('should create new enfant', done => {
-      const enfant = { name: 'Alex', town: 'Chartres', age: 40 };
+      const enfant = { name: 'Alex', age: 40, town: 'Chartres', present: 'nerf' };
       chai.request(app)
         .post('/api/enfant')
         .send(enfant)
@@ -48,23 +48,25 @@ describe('Enfants', () => {
           res.should.have.status(200);
           res.body.should.be.a('object');
           res.body.should.have.a.property('name');
-          res.body.should.have.a.property('town');
           res.body.should.have.a.property('age');
+          res.body.should.have.a.property('town');
+          res.body.should.have.a.property('present');
           done();
         });
     });
 
     it('should get a enfant by its id', done => {
-      const enfant = new Enfant({ name: 'Enfant', town: 'Town', age: 40 });
+      const enfant = new Enfant({ name: 'Alex', age: 40, town: 'Chartres', present: 'nerf'});
       enfant.save((error, newEnfant) => {
         chai.request(app)
           .get(`/api/enfant/${newEnfant.id}`)
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
-            res.body.should.have.property('name');
-            res.body.should.have.property('town');
-            res.body.should.have.property('age');
+            res.body.should.have.a.property('name');
+            res.body.should.have.a.property('age');
+            res.body.should.have.a.property('town');
+            res.body.should.have.a.property('present');
             res.body.should.have.property('_id').eql(newEnfant.id);
             done();
           });
@@ -72,7 +74,7 @@ describe('Enfants', () => {
     });
 
     it('should update a enfant by its id', done => {
-      const enfant = new Enfant({ name: 'Enfant', town: 'Town', age: 40 });
+      const enfant = new Enfant({ name: 'Name', age: 40, town: 'town', present: 'present' });
       enfant.save((error, newEnfant) => {
         chai.request(app)
           .put(`/api/enfant/${newEnfant.id}`)
@@ -85,7 +87,7 @@ describe('Enfants', () => {
     });
 
     it('should delete a enfant by its id', done => {
-      const enfant = new Enfant({ name: 'Enfant', town: 'Town', age: 40 });
+      const enfant = new Enfant({ name: 'Name', age: 40, town: 'town', present: 'present' });
       enfant.save((error, newEnfant) => {
         chai.request(app)
           .delete(`/api/enfant/${newEnfant.id}`)
