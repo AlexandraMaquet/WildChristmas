@@ -3,3 +3,34 @@
   text-align: center;
   width: 25%;
 }
+
+
+  .container-fluid{
+    background-image:url("../assets/fondRouge.jpg")no-repeat 0 0;
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center center;
+  }
+
+  
+div.lettre {
+  border: 2px dotted red;
+}
+
+h2 {
+  color: #101074;
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 55px;
+  margin: 45px 0;
+  text-align: center;
+
+}
+
+p {
+  color: #101074;
+  font-family: 'Pacifico', cursive;
+  font-size: 25px;
+  line-height: 50px;
+  text-align: center;
+}
+
