@@ -18,6 +18,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PereNoelComponent } from './pere-noel/pere-noel.component';
 
 import { ElfComponent } from './elf/elf.component';
 
@@ -33,6 +34,7 @@ import { ElfComponent } from './elf/elf.component';
     AdminComponent,
     NotFoundComponent,
     EnfantsComponent,
+    PereNoelComponent,
     ElfComponent
   ],
   imports: [
