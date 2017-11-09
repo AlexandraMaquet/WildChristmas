@@ -4,7 +4,7 @@
 
 
 
-<div class="card" *ngIf="!isEditing && !orderDone">
+<div class="container card " *ngIf="!isEditing && !orderDone">
   <h4 class="card-header">Qui es-tu?</h4>
   <div class="card-block">
     <form class="form-inline" [formGroup]="addEnfantForm" (ngSubmit)="addEnfant()" style="text-align:center">
@@ -18,16 +18,16 @@
         <input class="form-control" type="text" name="town" formControlName="town" placeholder="Ta ville" step="any" min="0">
       </div>
       <div class="form-group">
-        <input class="form-control" type="text" name="present" formControlName="present" placeholder="Ton jouet" step="any" min="0">
+        <input class="form-control" type="text" name="present" formControlName="present" placeholder="Ton jouet idéal" step="any" min="0">
       </div>
-      <button class="btn btn-primary" type="submit" [disabled]="!addEnfantForm.valid"><i class="fa fa-floppy-o"></i> OK!!</button>
+      <button class="button2 btn btn-primary" type="submit" [disabled]="!addEnfantForm.valid">Envoyer ma demande au père noël!</button>
     </form>
   </div>
 </div>
 
 
-  <div *ngIf="!orderDone">
-      <div class="container-fluid fondRouge">
+<div *ngIf="orderDone">
+  <div class="container-fluid fondRouge">
     <div class="container lettre">
       <div *ngFor=" let enfant of enfants;  let last = last">
         <h2 class="lettreH" *ngIf="last">Hey {{enfant.name}} !!</h2>

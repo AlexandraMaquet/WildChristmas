@@ -3,18 +3,21 @@
   text-align: center;
   width: 25%;
 }
-
-
-  .container-fluid{
-    background-image:url("../assets/fondRouge.jpg")no-repeat 0 0;
-    background-size:cover;
-    background-attachment: fixed;
-    background-position: center center;
-  }
-
-  
+ 
 div.lettre {
-  border: 2px dotted red;
+  border: 2px dotted #860A0A;
+}
+.button2 {
+  margin-top: 25px;
+}
+.button2:hover {
+  background-color: #860A0A
+}
+
+.button2:active {
+  background-color: #860A0A;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 h2 {
@@ -34,3 +37,14 @@ p {
   text-align: center;
 }
 
+.card {
+  margin-top: 70px;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.card-block {
+  
+}

@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-fluid">
 
-  <nav class="navbar navbar-dark bg-primary">
+  <nav class="container navbar navbar-dark bg-primary">
     <div class="nav navbar-nav">
       <a routerLink="/" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <i class="fa fa-home"></i> Home
       </a>
-     <a routerLink="/cats" class="nav-item nav-link" *ngIf="catNav" routerLinkActive="active">
+      <a routerLink="/cats" class="nav-item nav-link" *ngIf="catNav" routerLinkActive="active">
         <i class="fa fa-list" ></i> Cats
       </a>
       <a routerLink="/enfants" class="nav-item nav-link" routerLinkActive="active">
