@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: '', component: AboutComponent },
   { path: 'cats', component: CatsComponent },
   { path: 'enfants', component: EnfantsComponent },
-  { path: 'jouets', component: ElfComponent },
+  { path: 'elf', component: ElfComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },

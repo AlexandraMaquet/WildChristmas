@@ -1,61 +1,52 @@
+<p>
+  TEST</p>
+
 <app-loading [condition]="isLoading"></app-loading>
 
 <app-toast [message]="toast.message"></app-toast>
 
 <div class="card" *ngIf="!isLoading">
-    <h4 class="card-header">Nombre d'enfants enregistrés: {{enfants.length}}</h4>
-    <div class="card-block">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-default">
-          <tr>
-            <th>Prénom</th>
-            <th>Age</th>
-            <th>Ville</th>
-            <th>Cadeau</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody *ngIf="enfants.length === 0">
-          <tr>
-            <td colspan="4">There are no enfant in the DB. Add a new enfant below.</td>
-          </tr>  
-        </tbody>
-        <tbody *ngIf="!isEditing">
-          <tr *ngFor="let enfant of enfants">
-            <td>{{enfant.name}}</td>
-            <td>{{enfant.age}}</td>
-            <td>{{enfant.town}}</td>
-            <td>{{enfant.present}}</td>
-            <td>
-              <button class="btn btn-sm btn-warning" (click)="enableEditing(enfant)"><i class="fa fa-pencil"></i> Edit</button> 
-              <button class="btn btn-sm btn-danger" (click)="deleteEnfant(enfant)"><i class="fa fa-trash"></i> Delete</button>
-            </td>
-          </tr>  
-        </tbody>
-        <tbody *ngIf="isEditing">
-          <tr>
-            <td colspan="4">
-              <form class="form-inline" #form="ngForm" (ngSubmit)="editEnfant(enfant)" style="display:inline">
-                <div class="form-group">
-                  <input class="form-control" type="text" name="name" [(ngModel)]="enfant.name" placeholder="Ton prénom" required>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" type="number" name="age" [(ngModel)]="enfant.age" placeholder="Ton âge" min="0" required>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" type="text" name="town" [(ngModel)]="enfant.town" placeholder="Ta ville" required>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" type="text" name="present" [(ngModel)]="enfant.present" placeholder="Ton cadeau" required>
-                </div> 
-                <button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid"><i class="fa fa-floppy-o"></i>OK!</button>
-              </form>
-              <button class="btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i>Annuler</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <h4 class="card-header">Nombre de jouets enregistrés: {{enfants.length}}</h4>
+  <div class="card-block">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-default">
+        <tr>
+          <th>Cadeau</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="present.length === 0">
+        <tr>
+          <td colspan="4">There are no enfant in the DB. Add a new enfant below.</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!isEditing">
+        <tr *ngFor="let enfant of enfants">
+          <td>{{enfant.present}}</td>
+          <td>
+            <button class="btn btn-sm btn-success" (click)="enableCheck(enfant)">
+              <i class="fa fa-check"></i> Fabriqué</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteEnfant(enfant)">
+              <i class="fa fa-trash"></i> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="isEditing">
+        <tr>
+          <td colspan="4">
+            <form class="form-inline" #form="ngForm" (ngSubmit)="editEnfant(enfant)" style="display:inline">
+
+              <div class="form-group">
+                <input class="form-control" type="text" name="present" [(ngModel)]="enfant.present" placeholder="Ton cadeau" required>
+              </div>
+              <button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid">
+                <i class="fa fa-floppy-o"></i>OK!</button>
+            </form>
+            <button class="btn btn-sm btn-warning" (click)="cancelEditing()">
+              <i class="fa fa-times"></i>Annuler</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-
+</div>

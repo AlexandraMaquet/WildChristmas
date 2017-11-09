@@ -61,20 +61,6 @@ export class ElfComponent implements OnInit {
     );
   }
 
- 
-  enableEditing(enfant) {
-    this.isEditing = true;
-    this.enfant = enfant;
-  }
-
-  cancelEditing() {
-    this.isEditing = false;
-    this.enfant = {};
-    this.toast.setMessage('enfant editing cancelled.', 'warning');
-    // reload the enfants to reset the editing
-    this.getEnfants();
-  }
-
   editEnfant(enfant) {
     this.enfantService.editEnfant(enfant).subscribe(
       res => {
