@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require("mongoose");
 var enfantSchema = new mongoose.Schema({
     name: String,
-    weight: Number,
+    town: String,
     age: Number
 });
 var Enfant = mongoose.model('Enfant', enfantSchema);

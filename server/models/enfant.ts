@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 
 const enfantSchema = new mongoose.Schema({
   name: String,
-  weight: Number,
+  town: String,
   age: Number
 });
 

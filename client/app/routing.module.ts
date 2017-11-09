@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { EnfantsComponent } from './enfant/enfants.component';
+import { CatsComponent } from './cats/cats.component';
+import { EnfantsComponent } from './enfants/enfants.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +16,7 @@ import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
+  { path: 'cats', component: CatsComponent },
   { path: 'enfants', component: EnfantsComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

@@ -1,13 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
+var cat_1 = require("./controllers/cat");
 var enfant_1 = require("./controllers/enfant");
 var user_1 = require("./controllers/user");
 function setRoutes(app) {
     var router = express.Router();
+    var catCtrl = new cat_1.default();
     var enfantCtrl = new enfant_1.default();
     var userCtrl = new user_1.default();
-    // Children
+    // Cats
+    router.route('/cats').get(catCtrl.getAll);
+    router.route('/cats/count').get(catCtrl.count);
+    router.route('/cat').post(catCtrl.insert);
+    router.route('/cat/:id').get(catCtrl.get);
+    router.route('/cat/:id').put(catCtrl.update);
+    router.route('/cat/:id').delete(catCtrl.delete);
+    // enfant
     router.route('/enfants').get(enfantCtrl.getAll);
     router.route('/enfants/count').get(enfantCtrl.count);
     router.route('/enfant').post(enfantCtrl.insert);
