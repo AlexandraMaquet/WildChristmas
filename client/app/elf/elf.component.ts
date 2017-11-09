@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EnfantsComponent } from '../enfants/enfants.component'
+
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import { EnfantService } from '../services/enfant.service';
@@ -6,12 +8,12 @@ import { ToastComponent } from '../shared/toast/toast.component';
 
 
 @Component({
-  selector: 'app-enfants',
-  templateUrl: './enfants.component.html',
-  styleUrls: ['./enfants.component.scss']
+  selector: 'app-elf',
+  templateUrl: './elf.component.html',
+  styleUrls: ['./elf.component.scss']
 })
-export class EnfantsComponent implements OnInit {
-
+export class ElfComponent implements OnInit {
+    
   enfant = {};
   enfants = [];
   isLoading = true;
@@ -46,8 +48,6 @@ export class EnfantsComponent implements OnInit {
     );
   }
 
-
-  
   addEnfant() {
     this.enfantService.addEnfant(this.addEnfantForm.value).subscribe(
       res => {
@@ -59,20 +59,6 @@ export class EnfantsComponent implements OnInit {
       },
       error => console.log(error)
     );
-  }
-
- 
-  enableEditing(enfant) {
-    this.isEditing = true;
-    this.enfant = enfant;
-  }
-
-  cancelEditing() {
-    this.isEditing = false;
-    this.enfant = {};
-    this.toast.setMessage('enfant editing cancelled.', 'warning');
-    // reload the enfants to reset the editing
-    this.getEnfants();
   }
 
   editEnfant(enfant) {
@@ -100,3 +86,4 @@ export class EnfantsComponent implements OnInit {
   }
 
 }
+

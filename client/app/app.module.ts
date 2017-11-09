@@ -20,6 +20,8 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PereNoelComponent } from './pere-noel/pere-noel.component';
 
+import { ElfComponent } from './elf/elf.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { PereNoelComponent } from './pere-noel/pere-noel.component';
     AdminComponent,
     NotFoundComponent,
     EnfantsComponent,
-    PereNoelComponent
+    PereNoelComponent,
+    ElfComponent
   ],
   imports: [
     RoutingModule,
