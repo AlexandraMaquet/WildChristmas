@@ -19,6 +19,8 @@ import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { ElfComponent } from './elf/elf.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AccountComponent,
     AdminComponent,
     NotFoundComponent,
-    EnfantsComponent
+    EnfantsComponent,
+    ElfComponent
   ],
   imports: [
     RoutingModule,
