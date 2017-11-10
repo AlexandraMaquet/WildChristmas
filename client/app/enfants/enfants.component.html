@@ -1,68 +1,68 @@
+<div>
+  <p class="clignotant2">
+    <span class="clignotant a">J</span>
+    <span class="clignotant b">o</span>
+    <span class="clignotant c">y</span>
+    <span class="clignotant d">e</span>
+    <span class="clignotant e">u</span>
+    <span class="clignotant f">x</span>
+    <span class="clignotant g">&nbsp;</span>
+    <span class="clignotant h">N</span>
+    <span class="clignotant i">o</span>
+    <span class="clignotant j">ë</span>
+    <span class="clignotant k">l</span>
+    <span class="clignotant l">!</span>
+    <span class="clignotant m">!</span>
+    <span class="clignotant n">!</span>
+    <span class="clignotant o">!</span>
+  </p>
+</div>
 <app-loading [condition]="isLoading"></app-loading>
-
-<app-toast [message]="toast.message"></app-toast>
 
 
 
 <div class="container card " *ngIf="!isEditing && !orderDone">
-  <h4 class="card-header">  Dépose ta liste de jouets et tes coordonnées</h4>
+  <h4 class="card-header"> Dépose ta liste de jouets et tes coordonnées</h4>
   <div class="card-block">
     <form class="form-inline" [formGroup]="addEnfantForm" (ngSubmit)="addEnfant()" style="text-align:center">
 
-        <div class="form-group">
-            <input class="form-control" type="text" name="present" formControlName="present" placeholder="Ton jouet idéal" step="any" min="0">
-          </div>
       <div class="form-group">
-        <input class="form-control" type="text" name="name" formControlName="name" placeholder="Nom">
+        <input class="form-control" type="text" name="present" formControlName="present" placeholder="Ton jouet idéal" step="any"
+          min="0">
       </div>
       <div class="form-group">
-        <input class="form-control" type="number" name="age" formControlName="age" placeholder="Age" min="0">
+        <input class="form-control" type="text" name="name" formControlName="name" placeholder="Ton Prénom">
       </div>
       <div class="form-group">
-        <!-- <input class="form-control" type="text" name="town" formControlName="town" placeholder="Ta ville"> -->
-        <input class="form-control" type="text" name="town" formControlName="town" placeholder="Ta ville" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+        <input class="form-control" type="number" name="age" formControlName="age" placeholder="Ton âge" min="0">
       </div>
-      <div class="container" id= "container">
-      <button class="button2 btn btn-primary" type="submit" [disabled]="!addEnfantForm.valid"><span class="p"> Envoyer ma demande au père noël!</span></button>
-    </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="town" formControlName="town" placeholder="Ta ville">
+        <!-- <input class="form-control" type="text" name="town" formControlName="town" placeholder="Ta ville" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"> -->
+      </div>
+      <div class="bg centered container" id="container">
+        <button class="button2 button btn btn-primary" type="submit" [disabled]="!addEnfantForm.valid"><span class="p"> Envoyer ma demande au père noël!</span></button>
+      </div>
     </form>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="orderDoneStyle" *ngIf="orderDone">
-
-    <div class="container lettre">
-      <div *ngFor=" let enfant of enfants;  let last = last">
-        <h2 class="lettreH" *ngIf="last">Hey {{enfant.name}} !!</h2>
-      </div>
-      <div *ngFor=" let enfant of enfants;  let last = last">
-        <p class="lettreP" *ngIf="last">En cette période de Noël, je dois redoubler d'effort pour terminer la fabrication<br> et l'emballage des cadeaux
-          qui seront offerts à tous les enfants du monde entier. <br> Heureusement, tous mes lutins m'aident beaucoup dans
-          cette tâche!!! <br> D'ailleurs, l'un d'entre eux m'a rapporté que tu avais commandé un/une "{{enfant.present}}"!
-          <br> Je m'en vais donc de ce pas vérifier si ton jouet existe déjà et s'il ne l'est pas, <br> lancer sa fabrication!
-        </p>
-      </div>
-      <div *ngFor=" let enfant of enfants;  let last = last">
-        <h2 class="lettreH" *ngIf="last">Joyeux noël {{enfant.name}} !!</h2>
-      </div>
+  <div class="container lettre">
+    <div *ngFor=" let enfant of enfants;  let last = last">
+      <h2 class="lettreH" *ngIf="last">Hey {{enfant.name}} !!</h2>
     </div>
-
+    <div *ngFor=" let enfant of enfants;  let last = last">
+      <p class="lettreP" *ngIf="last">En cette période de Noël, je dois redoubler d'effort pour terminer la fabrication<br> et l'emballage des cadeaux qui
+        seront offerts à tous les enfants du monde entier. <br> Heureusement, tous mes lutins m'aident beaucoup dans cette
+        tâche!!! <br> D'ailleurs, l'un d'entre eux m'a rapporté que tu avais commandé un/une "{{enfant.present}}"!
+        <br> Je m'en vais donc de ce pas vérifier si ton jouet existe déjà et s'il ne l'est pas, <br> lancer sa fabrication!
+      </p>
+    </div>
+    <div *ngFor=" let enfant of enfants;  let last = last">
+      <h2 class="lettreH" *ngIf="last">Joyeux noël {{enfant.name}} !!</h2>
+    </div>
+  </div>
 </div>
 
 
