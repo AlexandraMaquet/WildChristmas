@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-=======
-
-
->>>>>>> elf
 <app-loading [condition]="isLoading"></app-loading>
 
 <app-toast [message]="toast.message"></app-toast>
 
 <div class="card" *ngIf="!isLoading">
-  <h4 class="card-header">Nombre de jouets: {{enfants.length-enfantsCreatedCount}}</h4>
-  <h4 class="card-header">Nombre de jouets fabriqués: {{enfantsCreatedCount}}</h4>
+  <h4 class="card-header">Nombre de jouets: {{enfants.length-enfantsCreatedCount}}</h4><br>
+  <h4 class="card-header">Nombre de jouets fabriqués: {{enfantsCreatedCount}}</h4><br>
   <div class="card-block">
     <table class="table table-bordered table-striped">
       <thead class="thead-default">
@@ -27,6 +22,10 @@
         <tr *ngFor="let enfant of enfants">
           <td>{{enfant.present}}</td>
           <td>
+            <input  type="text" name="present"  placeholder="nom de l'elfe" step="any" min="0"><br>
+            <input  type="text" name="present"  placeholder="commentaires" step="any" min="0"><br>
+            <input  type="number"  placeholder="nbr d'heure" min="0"><br>
+            <input  type="number"  placeholder="incident" min="0"><br>
             <button class="btn btn-sm btn-success" (click)="created(enfant)" *ngIf="!enfant.created">
               <i class="fa fa-check"></i>marquer comme fabriqué</button>
             <button class="btn btn-sm btn-success" (click)="created(enfant)" *ngIf="enfant.created" [disabled]="true">

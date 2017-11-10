@@ -1,10 +1,23 @@
 
 <div class="container">
-  <h1>Livraison.... et merde, je suis à la bourre</h1>
+  <h1 class='ups'>Livraison.... et merde, je suis à la bourre</h1>
   <div class="form-group">
-    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+      <h4 class="card-header">commande n°563923095 pour Chartres réalisées   par Légolas</h4><br>
+    <input placeholder="lieux de livraison" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
   </div>
   <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
     <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
   </agm-map>
+  <br>
+  <button class='btn btn-sucess'>actualiser plan de tournée </button>
 </div>
+<br>  
+<h4 class="card-header">Nombre de jouets restant à fabriquer: 23 </h4><br>
+<h4 class="card-header">nombre de jouet fabriqués par vacation: 5</h4><br>
+<h4 class="card-header">Nombre de commandes reçues quotidiennement: 50 </h4><br>
+<h4 class="card-header">Nombre d'elfes disponibles: 11</h4><br>
+<h4 class="card-header">Nombre de jour sans incident: 05 jours</h4><br>
+<h4 class="card-header">Nombre de jours avant noel: 44 jours</h4><br>
+
+<br>
+<app-register></app-register>
