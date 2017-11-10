@@ -5,11 +5,15 @@
 
 
 <div class="container card " *ngIf="!isEditing && !orderDone">
-  <h4 class="card-header">Qui es-tu?</h4>
+  <h4 class="card-header">  Dépose ta liste de jouets et tes coordonnées</h4>
   <div class="card-block">
     <form class="form-inline" [formGroup]="addEnfantForm" (ngSubmit)="addEnfant()" style="text-align:center">
+
+        <div class="form-group">
+            <input class="form-control" type="text" name="present" formControlName="present" placeholder="Ton jouet idéal" step="any" min="0">
+          </div>
       <div class="form-group">
-        <input class="form-control" type="text" name="name" formControlName="name" placeholder="Name">
+        <input class="form-control" type="text" name="name" formControlName="name" placeholder="Nom">
       </div>
       <div class="form-group">
         <input class="form-control" type="number" name="age" formControlName="age" placeholder="Age" min="0">
@@ -17,10 +21,9 @@
       <div class="form-group">
         <input class="form-control" type="text" name="town" formControlName="town" placeholder="Ta ville" step="any" min="0">
       </div>
-      <div class="form-group">
-        <input class="form-control" type="text" name="present" formControlName="present" placeholder="Ton jouet idéal" step="any" min="0">
-      </div>
-      <button class="button2 btn btn-primary" type="submit" [disabled]="!addEnfantForm.valid">Envoyer ma demande au père noël!</button>
+      <div class="container" id= "container">
+      <button class="button2 btn btn-primary" type="submit" [disabled]="!addEnfantForm.valid"><span class="p"> Envoyer ma demande au père noël!</span></button>
+    </div>
     </form>
   </div>
 </div>
@@ -41,8 +44,8 @@
 
 
 
-<div *ngIf="orderDone">
-  <div class="container-fluid fondRouge">
+<div class="orderDoneStyle" *ngIf="orderDone">
+
     <div class="container lettre">
       <div *ngFor=" let enfant of enfants;  let last = last">
         <h2 class="lettreH" *ngIf="last">Hey {{enfant.name}} !!</h2>
@@ -58,7 +61,7 @@
         <h2 class="lettreH" *ngIf="last">Joyeux noël {{enfant.name}} !!</h2>
       </div>
     </div>
-  </div>
+
 </div>
 
 

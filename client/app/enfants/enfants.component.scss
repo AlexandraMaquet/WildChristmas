@@ -3,9 +3,18 @@
   text-align: center;
   width: 25%;
 }
- 
+
+.card-header{
+  background:rgba(255,255,255,0.5);
+  text-align: center;
+  border-radius:10px;
+}
+
+
 div.lettre {
   border: 2px dotted #860A0A;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .button2 {
   margin-top: 25px;
@@ -22,8 +31,13 @@ div.lettre {
   transform: translateY(4px);
 }
 
+.btn-primary{background: red;
+  
+}
+
+
 h2 {
-  color: #101074;
+  color: #c00808;
   font-family: 'Mountains of Christmas', cursive;
   font-size: 55px;
   margin: 45px 0;
@@ -32,7 +46,7 @@ h2 {
 }
 
 p {
-  color: #101074;
+  color: #c00808;
   font-family: 'Pacifico', cursive;
   font-size: 25px;
   line-height: 50px;
@@ -40,10 +54,21 @@ p {
 }
 
 .card {
-  margin-top: 70px;
-}
+  margin-top: 40px;
+  background: none;
+  padding-bottom: 10px;
+  }
+ 
 
-.card-header {
-  text-align: center;
-}
 
+
+    .p {
+      text-align: center;
+      font-size: 2em;
+      margin: 20px 0 20px 0;
+    }
+    .form-control{
+      border-radius: 15px;
+
+    } 
+    

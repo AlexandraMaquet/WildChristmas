@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
+/*body {
   margin-top: 15px;
   margin-bottom: 10px;
-}
+  background: #FF512F;  /* fallback for old browsers *//*
+  background: -webkit-linear-gradient(to right, #DD2476, #FF512F); 
+  background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
+  
+}*/
+
 
 .input-group {
   margin-bottom: 15px;
@@ -14,3 +19,56 @@ body {
   left: 80%;
   width: 200px;
 }
+
+.nav-fluid{
+  margin-top: -15px;
+  margin-top: 100px;
+  width: 993px;
+  background: none;
+}
+
+
+body { background-color:rgb(3, 3, 3); }
+#snow{
+	background: none;
+	font-family: Androgyne;
+	background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'), url('http://www.wearewebstars.dk/codepen/img//s2.png'), url('http://www.wearewebstars.dk/codepen/img//s3.png');
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index:1;
+	-webkit-animation: snow 10s linear infinite;
+	-moz-animation: snow 10s linear infinite;
+	-ms-animation: snow 10s linear infinite;
+	animation: snow 10s linear infinite;
+}
+@keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-webkit-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-ms-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}	
+
+img{
+ width: 900px;
+ opacity: 0.5;
+ filter: alpha(opacity=50); /* For IE8 and earlier */ 
+ 
+}
+
