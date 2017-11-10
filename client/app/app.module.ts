@@ -64,9 +64,6 @@ import{ PereNoelComponent } from'./pere-noel/pere-noel.component'
   bootstrap: [AppComponent]
 })
 
-<<<<<<< HEAD
-export class AppModule { }
-
-=======
-export class AppModule { }
->>>>>>> elf
+export class AppModule { 
+  
+}
