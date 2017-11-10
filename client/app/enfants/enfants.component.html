@@ -52,7 +52,7 @@
     <div *ngFor=" let enfant of enfants;  let last = last">
       <h2 class="lettreH" *ngIf="last">Hey {{enfant.name}} !!</h2>
     </div>
-    <div *ngFor=" let enfant of enfants;  let last = last">
+    <div class="divP" *ngFor=" let enfant of enfants;  let last = last">
       <p class="lettreP" *ngIf="last">En cette période de Noël, je dois redoubler d'effort pour terminer la fabrication<br> et l'emballage des cadeaux qui
         seront offerts à tous les enfants du monde entier. <br> Heureusement, tous mes lutins m'aident beaucoup dans cette
         tâche!!! <br> D'ailleurs, l'un d'entre eux m'a rapporté que tu avais commandé un/une "{{enfant.present}}"!

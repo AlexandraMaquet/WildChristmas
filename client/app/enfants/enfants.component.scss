@@ -5,7 +5,7 @@
 }
 
 .card-header{
-  background:rgba(255,255,255,0.5);
+  background:lightblue;
   text-align: center;
   border-radius:10px;
 }
@@ -14,9 +14,14 @@
   background-image: none;
 }
 
-div.lettre {
-  margin: 70px;
+h2.lettreH {
+  color: lightblue;
 }
+
+p.lettreP {
+  color: lightblue;
+}
+
 .button2 {
   margin-top: 25px;
 }
@@ -211,3 +216,6 @@ p {
     
     @-webkit-keyframes colorFive { from { color: darkgreen; } to { color: orange; }}
     
+    .divP{
+      text-align: center;
+    }
