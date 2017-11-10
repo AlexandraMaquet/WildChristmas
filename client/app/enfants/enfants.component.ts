@@ -1,8 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { } from 'googlemaps';
+import { MapsAPILoader } from '@agm/core';
+import { AgmCoreModule } from '@agm/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import { EnfantService } from '../services/enfant.service';
 import { ToastComponent } from '../shared/toast/toast.component';
+import { PereNoelComponent } from '../pere-noel/pere-noel.component';
 
 
 @Component({
@@ -17,6 +23,13 @@ export class EnfantsComponent implements OnInit {
   isLoading = true;
   isEditing = false;
   orderDone = false;
+  public latitude: number;
+  public longitude: number;
+  public searchControl: FormControl;
+  public zoom: number;
+
+  @ViewChild("search")
+  public searchElementRef: ElementRef;
 
   addEnfantForm: FormGroup;
   name = new FormControl('', Validators.required);
@@ -26,9 +39,46 @@ export class EnfantsComponent implements OnInit {
 
   constructor(private enfantService: EnfantService,
               private formBuilder: FormBuilder,
-              public toast: ToastComponent) { }
+              public toast: ToastComponent,
+              private mapsAPILoader: MapsAPILoader,
+              private ngZone: NgZone) { }
 
   ngOnInit() {
+
+    //set google maps defaults
+    this.zoom = 4;
+    this.latitude = 39.8282;
+    this.longitude = -98.5795;
+
+    //create search FormControl
+    this.searchControl = new FormControl();
+
+    //set current position
+    this.setCurrentPosition();
+
+      //load Places Autocomplete
+    this.mapsAPILoader.load().then(() => {
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+
+          //set latitude, longitude and zoom
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 12;
+        });
+      });
+    });
+
     this.getEnfants();
     this.addEnfantForm = this.formBuilder.group({
       name: this.name,
@@ -99,4 +149,13 @@ export class EnfantsComponent implements OnInit {
     }
   }
 
+private setCurrentPosition() {
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+      this.zoom = 12;
+    });
+  }
+}
 }

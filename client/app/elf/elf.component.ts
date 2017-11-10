@@ -13,10 +13,11 @@ import { ToastComponent } from '../shared/toast/toast.component';
   styleUrls: ['./elf.component.scss']
 })
 export class ElfComponent implements OnInit {
-    
+
   enfant = {};
   enfants = [];
   isLoading = true;
+  enfantsCreatedCount: number = 0;
 
   addEnfantForm: FormGroup;
   name = new FormControl('', Validators.required);
@@ -25,11 +26,12 @@ export class ElfComponent implements OnInit {
   present = new FormControl('', Validators.required);
 
   constructor(private enfantService: EnfantService,
-              private formBuilder: FormBuilder,
-              public toast: ToastComponent) { }
+    private formBuilder: FormBuilder,
+    public toast: ToastComponent) { }
 
   ngOnInit() {
     this.getEnfants();
+    this.getEnfantsCreatedCount();
     this.addEnfantForm = this.formBuilder.group({
       name: this.name,
       age: this.age,
@@ -37,14 +39,24 @@ export class ElfComponent implements OnInit {
       present: this.present
     });
   }
-  enableCheck(){
-    
+  enableCheck() {
+
 
   }
 
   getEnfants() {
     this.enfantService.getEnfants().subscribe(
       data => this.enfants = data,
+      error => console.log(error),
+      () => this.isLoading = false
+    );
+  }
+
+  getEnfantsCreatedCount() {
+    this.enfantService.countEnfantsCreated().subscribe(
+      data => {
+        this.enfantsCreatedCount = data
+      },
       error => console.log(error),
       () => this.isLoading = false
     );
@@ -67,6 +79,7 @@ export class ElfComponent implements OnInit {
     this.enfantService.editEnfant(enfant).subscribe(
       res => {
         this.enfant = enfant;
+        this.getEnfantsCreatedCount();
         this.toast.setMessage('le cadeau a été fabriqué!', 'success');
       },
       error => console.log(error)

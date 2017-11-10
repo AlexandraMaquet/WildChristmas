@@ -3,8 +3,8 @@
 <app-toast [message]="toast.message"></app-toast>
 
 <div class="card" *ngIf="!isLoading">
-  <h4 class="card-header">Nombre de jouets: {{enfants.length}}</h4>
-  <!-- <h4 class="card-header">Nombre de jouets fabriqués: {{enfants.created.length}}</h4> -->
+  <h4 class="card-header">Nombre de jouets: {{enfants.length-enfantsCreatedCount}}</h4>
+  <h4 class="card-header">Nombre de jouets fabriqués: {{enfantsCreatedCount}}</h4>
   <div class="card-block">
     <table class="table table-bordered table-striped">
       <thead class="thead-default">

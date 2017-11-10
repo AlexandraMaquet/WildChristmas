@@ -19,6 +19,7 @@ function setRoutes(app) {
     // enfant
     router.route('/enfants').get(enfantCtrl.getAll);
     router.route('/enfants/created').get(enfantCtrl.getAllCreated);
+    router.route('/enfants/created/count').get(enfantCtrl.countCreated);
     router.route('/enfants/count').get(enfantCtrl.count);
     router.route('/enfant').post(enfantCtrl.insert);
     router.route('/enfant/:id').get(enfantCtrl.get);

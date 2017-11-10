@@ -24,6 +24,10 @@ export class EnfantService {
     return this.http.get('/api/enfants/count').map(res => res.json());
   }
 
+  countEnfantsCreated(): Observable<any> {
+    return this.http.get('/api/enfants/created/count').map(res => res.json());
+  }
+
   addEnfant(enfant): Observable<any> {
     return this.http.post('/api/enfant', JSON.stringify(enfant), this.options);
   }

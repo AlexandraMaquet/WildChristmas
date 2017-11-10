@@ -1,4 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RoutingModule } from './routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -20,6 +23,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PereNoelComponent } from './pere-noel/pere-noel.component';
 
+
 import { ElfComponent } from './elf/elf.component';
 
 @NgModule({
@@ -39,7 +43,13 @@ import { ElfComponent } from './elf/elf.component';
   ],
   imports: [
     RoutingModule,
-    SharedModule
+    SharedModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyCDCecaOXLZyoQv3BS0_cpAbDWo0TUlD5o",
+      libraries: ["places"]}),
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,
@@ -54,3 +64,4 @@ import { ElfComponent } from './elf/elf.component';
 })
 
 export class AppModule { }
+

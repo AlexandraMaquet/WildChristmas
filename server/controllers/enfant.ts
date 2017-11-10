@@ -10,4 +10,18 @@ export default class EnfantCtrl extends BaseCtrl {
       res.json(docs);
     });
   }
+
+  countCreated = (req, res) => {
+    this.model.count({created:true}, (err, count) => {
+      if (err) { return console.error(err); }
+      res.json(count);
+    });
+  }
+
+  test = (req, res) => {
+    this.model.count({created:true}, (err, count) => {
+      if (err) { return console.error(err); }
+      res.json(count);
+    });
+  }
 }

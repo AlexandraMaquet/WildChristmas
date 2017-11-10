@@ -25,6 +25,22 @@ var EnfantCtrl = (function (_super) {
                 res.json(docs);
             });
         };
+        _this.countCreated = function (req, res) {
+            _this.model.count({ created: true }, function (err, count) {
+                if (err) {
+                    return console.error(err);
+                }
+                res.json(count);
+            });
+        };
+        _this.test = function (req, res) {
+            _this.model.count({ created: true }, function (err, count) {
+                if (err) {
+                    return console.error(err);
+                }
+                res.json(count);
+            });
+        };
         return _this;
     }
     return EnfantCtrl;
