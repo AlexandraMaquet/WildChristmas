@@ -64,4 +64,10 @@ import{ PereNoelComponent } from'./pere-noel/pere-noel.component'
   bootstrap: [AppComponent]
 })
 
+<<<<<<< HEAD
 export class AppModule { }
+=======
+export class AppModule { 
+  
+}
+>>>>>>> 993edea6f9d011ef828f39b612065af42c63323a

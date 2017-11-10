@@ -1,6 +1,6 @@
 <div class="container-fluid nav-fluid">
   <div class="imageCiel">
-<img src="../assets/santa4.png" alt="pere noel ciel">
+    <img src="../assets/santa4.png" alt="pere noel ciel" *ngIf="router.url == '/'">
   </div>
 
   <nav class="navbar navbar-light bg-faded">
@@ -20,7 +20,7 @@
       <a routerLink="/pere-noel" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
         <i class="fa fa-tree"></i> Père Noël
       </a>
-      
+
     </div>
   </nav>
 
@@ -30,7 +30,7 @@
 <div class="container adminSection"><a routerLink="/login" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
   <i class="fa fa-sign-in"></i> Login
 </a>
-<a routerLink="/logout" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+  <a routerLink="/logout" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
   <i class="fa fa-sign-out"></i> Logout
 </a>
   <a routerLink="/register" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">

@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { EnfantService } from '../services/enfant.service';
 import { ToastComponent } from '../shared/toast/toast.component';
 import { PereNoelComponent } from '../pere-noel/pere-noel.component';
-
+import {} from "compass/css3";
 import {} from '@types/googlemaps';
 
 @Component({
@@ -24,6 +24,7 @@ export class EnfantsComponent implements OnInit {
   isLoading = true;
   isEditing = false;
   orderDone = false;
+  homeImgPage = false;
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;

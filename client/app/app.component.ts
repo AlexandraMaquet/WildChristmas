@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class AppComponent {
   
   catNav: boolean = false;
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService,
+              public router: Router) { }
 
 }
