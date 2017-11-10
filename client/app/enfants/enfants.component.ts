@@ -10,6 +10,7 @@ import { EnfantService } from '../services/enfant.service';
 import { ToastComponent } from '../shared/toast/toast.component';
 import { PereNoelComponent } from '../pere-noel/pere-noel.component';
 
+import {} from '@types/googlemaps';
 
 @Component({
   selector: 'app-enfants',
